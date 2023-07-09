@@ -1,0 +1,55 @@
+DJANGO FRAMEWORK
+
+NEEDS:
+ -Python Syntax
+ -Functions, return, arguments/ parameters
+ -modules --> group of functions, classes
+ -create own modules
+ -packages --> group of modules (folder) __init__.py (Script file)
+ -Exceptions Handling
+
+DJANGO (2003-2005)
+-Open Source
+-Macro FRAMEWORK
+-Micro FRAMEWORK (Flask FRAMEWORK)
+-Web FRAMEWORK
+-Free
+
+Web Application --> Design Pattern (MVC) for other frameworks
+But,DJANGO doesn't followed MVC Pattern
+
+It follows MVT pattern
+  M - model 
+  V - view
+  T - template
+
+Other Python frameworks like pyramid, bottle, cherrypy and tornod etc.,
+
+Features of DJANGO:
+ - Ridiculously Fast 
+ - Fully Loaded
+ - Reassuringly secure
+ - Exceeding scalable
+ - Incredibly versatile
+
+Version Check DJANGO
+
+    python3 -m django --version 
+            (or)
+    django-admin --version
+
+VS Code Extension 
+    - Platformio IDE 
+    - Autocomplete Python (Tabnine AI Assistant)
+    - Django for VSCode
+
+project --> Applications + configuration files
+Single Site --> Application --> books, audio, video pages
+
+Django Project --> Many Django Applications
+
+COMMAND LINE TOOL:
+
+1. django-admin - Run Django project
+2. django-admin startproject (foldername) - Create and Start project
+3. tree -f - Checking for folder files
