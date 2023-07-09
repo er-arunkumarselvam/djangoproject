@@ -53,6 +53,8 @@ COMMAND LINE TOOL:
 1. django-admin - Run Django project
 2. django-admin startproject (foldername) - Create and Start project
 3. tree -f - Checking for folder files
+4. python3 manage.py runserver - server is running
+5. python3 manage.py startapp applicationName - application is created
 
 
 Django Folder Files:
@@ -94,3 +96,84 @@ manage.py (most usage files)
  -running Test
  -creating migrations
 
+ Goto Django Project folder and runserver. click the url http://127.0.0.1:8000
+
+ Web server
+    - Providing environment to run web applicaitons.
+    - Servers
+        - HTTPRequest --> Web Components --> HTTPResponse
+ http://127.0.0.1:8000
+
+ 127.0.0.1 - IP Address - LocalHost
+ 8000 - Port Number
+
+ After Run Server - db.sqlite3 file is created. sqlite3 supported in Django (Default database connection)
+
+Web Application Creation:
+    
+    python3 manage.py startapp applicationName
+
+    - application folder is created and some files are present in the folder.
+
+Web Application folder Files
+
+__init__.py
+    - Blank Python Script Files
+    - Django will consider the particular folder as python packages
+
+admin.py
+    - admin interface --> Django models 
+
+apps.py
+
+models.py
+    - application data models
+
+test.py
+    - testing functions
+
+views.py
+    - function based views
+    - class based views
+    
+migrations
+    - db specific information stored
+
+Step#1 : Create Web App Setting in Project setting.py file
+ -Goto project folder --> settings.py --> goto "INSTALLED_APPS"
+ -Add your applicationName('firstapplication')
+
+Step#2 : User settings
+ -Goto application folder --> views.py 
+ -import HTTPResponse
+    from django.http import HttpResponse
+
+    add request and response messages
+
+    def anyName(request):
+        // block of Code
+        return HttpResponse()
+    
+    ex:
+    def welcome(request):
+    message = '<h1>Welcome to Our First Project</h1>'
+    return HttpResponse(message)
+
+Step#3 : Browser URL Setting
+ -Goto Project Folder --> urls.py file
+ -import views.py file
+    from firstapplication import views
+
+ -add url path
+    path('name/', views.functionName)
+ ex:
+ path('welcome', views.welcome)
+
+After runserver, goto http://127.0.0.1:8080/welcome, your message was displayed.
+
+Incase port number is changed
+    python3 manage.py runserver portNumber
+ ex:
+ python3 manage.py runserver 8080
+
+    
