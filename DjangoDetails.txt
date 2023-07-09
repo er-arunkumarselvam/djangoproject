@@ -53,3 +53,44 @@ COMMAND LINE TOOL:
 1. django-admin - Run Django project
 2. django-admin startproject (foldername) - Create and Start project
 3. tree -f - Checking for folder files
+
+
+Django Folder Files:
+
+__init__.py
+    - Blank Python Script Files
+    - Django will consider the particular folder as python packages
+
+settings.py (Mostly Used)
+    - Project settings, configuration files, installed applications, database configuration files, middleware configuration etc.,
+
+urls.py (Effectively Used)
+    - urls patterns will be stored
+    ex: /home, /aboutus, /contactus
+    - website consists web pages stored
+    EXAMPLE for URL PATTERNS: http://example.com/home, http://example.com/aboutus, http://example.com/contactus 
+
+wsgi.py (oldest file)
+    -Web Server Gateway Interface
+    -This file is used for production movement
+    -This file is used when we deploy our application in production Server
+
+Three Main Servers
+
+1. DEV Environment Server - Development Environment Server
+2. UAT - User Acceptance Test Environment Server (final stage of Development process)
+3. Production Environment Server - Production Environment Server
+
+asgi.py (newest file)
+    -Asynchronous Server Gateway Interface
+    
+Synchronous - Full site is load for refresh
+Asynchronous - In particular frame will be loaded
+ex: Cricket Website (Scorecard only load every balls).This is called Asynchronous loading.
+
+manage.py (most usage files)
+ -server starting
+ -running our server
+ -running Test
+ -creating migrations
+
