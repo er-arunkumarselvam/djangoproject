@@ -176,4 +176,36 @@ Incase port number is changed
  ex:
  python3 manage.py runserver 8080
 
+----------------------------------------------------------------------------------------------------------------------------------------
     
+In second application was created. views.py update some issue faced
+
+ex: from appName1 import views
+    from appName2 import views
+
+two views files are same name. it confused to urls.py file in python. so, overcome the problem in two methods like
+
+1. File Name is changed like views1.py, views2.py etc., but large applications doesn't have possible this method.
+
+2. In python have solution, like
+    from appName1 import views as v1
+    from appName2 import views as v2
+
+In More number of application in One Project to have more no.of urls are created. So, this urls.py file is not present in project level file. urls.py file is present in application level file will be created in application. It is a good practice and code reusability is achieved.
+
+    New Step #3: Create or copy a new file 'urls.py' from project folder to your application folder
+        - update your urls in urls.py file
+
+    Step #4: Goto urls.py file in project folder
+        - connect to urls in project folders like
+
+            import django.conf.urls import include
+
+            path('appName/', include(appName.urls))
+
+        ex:
+        path('urlTest/', include('urlTest.urls'))
+
+    In Browser url like http://127.0.0.1:8000/appName/url (ex: http://127.0.0.1:8000/urlTest/one)
+
+----------------------------------------------------------------------------------------------------------------------------------------      
