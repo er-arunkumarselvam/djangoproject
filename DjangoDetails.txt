@@ -208,4 +208,45 @@ In More number of application in One Project to have more no.of urls are created
 
     In Browser url like http://127.0.0.1:8000/appName/url (ex: http://127.0.0.1:8000/urlTest/one)
 
-----------------------------------------------------------------------------------------------------------------------------------------      
+---------------------------------------------------------------------------------------------------------------------------------------- 
+Model:
+
+View - Business Logics
+Template - Presentation layers
+
+VIEW:
+
+Style - CSS (Cascading Style Sheet)
+Image/ video /audio /CSS /JavaScript - Static Files
+
+Create a static folder in project folder and upload your static files.
+
+Rendering HTML Files or Create a Template Folder
+
+    -create a template folder in project folder
+    -create a html file in template folder
+    -connect the html file to views.py in application folder
+
+        def home(request):
+        return render(request, 'index.html')
+    
+    -goto settings.py in project folder
+
+        import os 
+
+        TEMPLATES Section add the path
+
+            'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        
+    -follow above Step 3 and 4
+
+    Incase your pass it values from views.py to HTML files
+
+        views.py
+
+        def home(request):
+        return render(request, 'index.html',{'Name': 'Arunkumar'})
+
+        index.html
+
+        <h2>{{Name}}</h2>
