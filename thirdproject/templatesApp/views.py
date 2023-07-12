@@ -1,18 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from pathlib import Path
-import os
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-# Create your views here.
-
+import datetime
 
 def home(request):
-    BASE_DIR2 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    print('<h1>'+BASE_DIR2+'</h1>')
-    TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-    print('<h1>'+TEMPLATES_DIR+'</h1>')
-    
-    return render(request, 'index.html',{'Name': 'Arunkumar'})
+    date = datetime.datetime.now()    
+    hour =int(date.strftime("%H"))
+    if hour<12:
+        message= 'Good Morning'
+    elif hour<16:
+        message= 'Good Afternoon'
+    elif hour<23:
+         message= 'Good Evening'
+    name = 'Arunkumar'
+    date_dict={'diplay_date':date,'emp_name':name,'greeting_message':message}
+    return render(request, 'index.html',context=date_dict)

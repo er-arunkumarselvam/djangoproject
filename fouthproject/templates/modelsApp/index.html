@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>models.py</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    
+    <h1>Employee Details</h1>
+    <!-- Jinja Template Syntax  -->
+    
+    <table>
+        <tr>
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>Employee Role</th>
+            <th>Employee Salary</th>
+        </tr>
+        {% if emp_list %}
+        {% for employee in emp_list %}
+        <tr>
+            <td>{{employee.empNo}}</td>
+            <td>{{employee.empName}}</td>
+            <td>{{employee.empRole}}</td>
+            <td>{{employee.empSalary}}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+</body>
+</html>
