@@ -50,12 +50,16 @@ Django Project --> Many Django Applications
 
 COMMAND LINE TOOL:
 
-1. django-admin - Run Django project
-2. django-admin startproject (foldername) - Create and Start project
-3. tree -f - Checking for folder files
-4. python3 manage.py runserver - server is running
-5. python3 manage.py startapp applicationName - application is created
-
+1.  django-admin - Run Django project
+2.  django-admin startproject (foldername) - Create and Start project
+3.  tree -f - Checking for folder files
+4.  python3 manage.py runserver - server is running
+5.  python3 manage.py startapp applicationName - application is created
+6.  python3 manage.py shell - Open interactiveConsole application
+7.  python3 manage.py makemigrations - ready to instruction to create model. conversion into db and python. SQL Query Creation Process.
+8.  python3 manage.py migrate - created a table. SQL Query Execution Process.
+9.  python3 manage.py sqlmigrate appName 0001 - for checking purpose
+10. python3 manage.py createsuperuser - create a django admin page for user
 
 Django Folder Files:
 
@@ -199,7 +203,7 @@ In More number of application in One Project to have more no.of urls are created
     Step #4: Goto urls.py file in project folder
         - connect to urls in project folders like
 
-            import django.conf.urls import include
+            from django.conf.urls import include
 
             path('appName/', include(appName.urls))
 
@@ -237,6 +241,11 @@ Rendering HTML Files or Create a Template Folder
         TEMPLATES Section add the path
 
             'DIRS': [os.path.join(BASE_DIR, 'templates')],
+
+            or
+
+            BASE_DIR2 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            TEMPLATES_DIR = os.path.join(BASE_DIR2, 'templates')
         
     -follow above Step 3 and 4
 
@@ -250,3 +259,178 @@ Rendering HTML Files or Create a Template Folder
         index.html
 
         <h2>{{Name}}</h2>
+
+Static Folder
+    - create a static folder --> images folder --> image files
+    - goto settings.py update the static folder details
+    ex:
+    STATIC_DIR = os.path.join(BASE_DIR2, 'static')
+
+    - add staticfiles_dir in below static url
+    ex:
+    STATICFILES_DIRS = [
+    STATIC_DIR,
+    ]
+
+    - add static syntax and image tag in html file 
+    ex:
+    {% load static %} -- Above Head Section
+
+    <img src="{% static 'folderName/imageFileName.exe' %}" alt="">
+
+    ex:
+    <img src="{% static 'images/imageFile.jpg' %}" alt="demo image">
+
+    add external css file:
+    ex:
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+models.py connection into database:
+
+    - goto settings.py 
+    - update your database details compulsory 'ENGINE' and 'NAME' in dictionary format for any database
+
+    ex: Default db.sqlite3 database in django
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+    }
+
+    ex: For PostgreSQL database, first install your machine and then use it.
+    DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "mydatabase",
+        "USER": "mydatabaseuser",
+        "PASSWORD": "mypassword",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
+    }
+    }
+
+    - check the db configuration connection
+    - open terminal type - python3 manage.py shell
+    - open interactiveConsole 
+    >>> from django.db import connection
+    >>> con = connection.cursor()
+    no error connection is successful.
+
+    Use exit() or Ctrl-D in interactiveConsole.
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Models.py
+
+Connect django and database using models.py
+
+Layers Link: https://docs.djangoproject.com/en/4.2/
+
+Models Link: https://docs.djangoproject.com/en/4.2/topics/db/models/
+
+Models Class Link: https://docs.djangoproject.com/en/4.2/ref/models/class/
+
+    -A model is the single, definitive source of information about your data.
+    -It contains the essential fields and behaviors of the data you’re storing.
+    -Generally, each model maps to a single database table.
+
+    The basics:
+
+    -Each model is a Python class that subclasses django.db.models.Model.
+    -Each attribute of the model represents a database field.
+
+    ex:(models.py)
+    from django.db import models
+
+    # Create your models here.
+    class Employees(models.Model):
+    empNo = models.IntegerField()
+    empName = models.CharField(max_length=25)
+    empRole = models.CharField(max_length=25)
+    empSalary = models.IntegerField()
+--------------------------------------------------------------------------------------------------------------------------------
+database ---> views ---> templates
+
+Model ---> Views ---> Templates (MVT) Django Project
+
+Create a model(table) Employees:
+
+    Ready to instruction to create model. conversion into db and python. SQL Query Creation Process.
+
+        python3 manage.py makemigrations - for single application
+
+        python3 manage.py makemigrations applicationName - for one more application
+
+    Created a table. SQL Query Execution Process.
+
+        python3 manage.py migrate 
+
+    For checking purpose
+
+        python3 manage.py sqlmigrate appName 0001 
+
+        ex: python3 manage.py sqlmigrate modelsApp 0001
+        
+    - goto admin.py in application folder
+    
+        from applicationName.models import ClassName
+
+        admin.site.register(ClassName)
+
+    ex:
+        from modelsApp.models import Employees
+
+        # Register your models here.
+        admin.site.register(Employees)
+
+    Table was created successfully.
+
+Create a Superuser in django-admin:
+
+    python3 manage.py createsuperuser
+
+    Create your username and password.
+
+MVT Process:
+
+    models.py --> views.py --> index.html
+
+    - Goto models.py
+
+        - Create a function like
+
+        def __str__(self):
+            return 'message' + fieldName 
+
+        ex: 
+
+        def __str__(self):
+            return 'Employees details are showed. Employee Name :' + empName
+
+    - Goto admin.py 
+
+        (admin.py can't handle directly in sql. But admin.py to inform sql information. So class is handle sql to import the admin.py)
+
+        - Create a class like
+
+        from modelsApp.models import Employees
+
+        class EmployeesAdmin(admin,ModelAdmin):
+            employeesDetails = ['empNo', 'empName', 'empRole', 'empSalary']
+        
+        admin.site.register(Employees, EmployeesAdmin)
+
+    - Goto views.py
+        - import first models.py file
+
+        from modelsApp.models import Employees
+
+        def models(request):
+            emp_data = Employee.objects.all() # To get all data for the employee model
+            emp_dict = {'emp_list':emp_data} # To create a dictionary in above data for sharing to html file
+            return render(request,'modelsApp/index.html', context=emp_dict) # context= dictionary datatype format send into html
+
+    - Goto index.html
+
+        - To render the employee model in the index.html
+        - using jinja template syntax
