@@ -330,14 +330,13 @@ Models Link: https://docs.djangoproject.com/en/4.2/topics/db/models/
 
 Models Class Link: https://docs.djangoproject.com/en/4.2/ref/models/class/
 
-    -A model is the single, definitive source of information about your data.
-    -It contains the essential fields and behaviors of the data you’re storing.
-    -Generally, each model maps to a single database table.
-
-    The basics:
-
-    -Each model is a Python class that subclasses django.db.models.Model.
-    -Each attribute of the model represents a database field.
+    MODEL
+* A model is the single, definative source of information about your data.
+* It contains essential fields and behavious(methods) of the data you're storing.
+* In Generally, each model class pointing to a single database table
+* Each model is a python class that subclass of django.db.models.Model
+* Each attribute of model is represents a database field (table column heading)
+* With all of this, Django gives you can automatically-generated database-access API.
 
     ex:(models.py)
     from django.db import models
@@ -434,3 +433,30 @@ MVT Process:
 
         - To render the employee model in the index.html
         - using jinja template syntax
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Django Templates:
+
+    - Code Readability
+    - Code reusability
+
+    html file - Template - Rendering
+
+     -print(__file__) # to print filename or file path with file name
+
+        #os module
+        import os
+        #print(os.path.abspath(__file__)) # absolute path
+
+        #dirname()
+        print(os.path.dirname(os.path.abspath(__file__))) #directory location
+
+    separate folder for template
+
+        render the template files in views.py file in application folder
+        update the project urls.py file
+
+    Template Tags:
+
+        
+         
