@@ -456,7 +456,36 @@ Django Templates:
         render the template files in views.py file in application folder
         update the project urls.py file
 
-    Template Tags:
+--------------------------------------------------------------------------------------------------------------------------------
+Django Forms
 
-        
+    Django Forms are Secured.
+    Automated Validation.
+
+    forms.Form --> modules
+
+- Create a App -> create file "forms.py" in application folder
+- update views.py file
+After update the urls.py file in project folder
+
+CSRF protection
+
+    Cross Site Request Forgery 
+
+    Django will raise a Forbidden (403) error, protecting the application from CSRF attacks.
+
+Include "csrf token" in form inside
+
+   {% csrf_token %}
+
+example:
+
+        <form method="post" action="/your_form_action/">
+        {% csrf_token %}
+        <!--Extra Input Tags-->
+        <input type="submit" value="Submit">
+        </form>
+------------------------------------------------------------------------------------------------------------------------------------
+
+
          
