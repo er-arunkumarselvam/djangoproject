@@ -486,6 +486,52 @@ example:
         <input type="submit" value="Submit">
         </form>
 ------------------------------------------------------------------------------------------------------------------------------------
+Session Management:
+
+    Client   <------------------> Server
+                Data Transfer
+
+    Protocol: 
+        http
+    Stateless Protocol:
+     - it is a communication protocol in which no session information is retained by the receiver, usually a server.
+
+    Session Management: (Time Period)
+
+        - cookies
+        - session API (for django)
+
+                                request
+            Client    <------------------------> Server
+                            response + cookies
+        
+        cookie object: store client 
+
+            - Temporary cookie
+            - Persistent cookie
+
+    Cookies Drawback:
+
+        - No Security
+        - Less information store, only string value - other datatypes are not supported
+        - Maximum count of cookies decided to Browser
+    
+    Overcome this problem, for django
+
+        SESSION ID MAINTAINED
+
+                How to use session?
+
+                    - The session framework let you store and retrieve arbitrary data on a per-site-visitor basis. 
+                    - It stores data on the server side and abstract sending and receiving of cookies.
+                    - Cookies contains a SESSION ID - not the data itself.
+
+                    - it stores database in session management information
 
 
-         
+                                                    request
+                                Client    <------------------------>  Server
+                                            response + session id
+
+        Benefits of Session Id:
+                - both client and server side should be maintained session id.
