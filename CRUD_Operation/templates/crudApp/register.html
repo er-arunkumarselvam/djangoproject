@@ -1,0 +1,9 @@
+<html>
+  {% extends 'crudApp/base.html' %} {% block content %}
+  <h1>Register Employee</h1>
+  <form action="" method="post">
+    {{form.as_p}} {% csrf_token %}
+    <input type="submit" value="Add Employee" />
+  </form>
+  {% endblock %}
+</html>

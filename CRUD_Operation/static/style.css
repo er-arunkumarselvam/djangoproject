@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h2 {
+  text-align: center;
+}
+a {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+a input {
+  text-align: center;
+  padding: 10px 20px;
+  background-color: rgb(255, 111, 0);
+}
+a input:hover {
+  background-color: rgb(255, 183, 48);
+}
+table {
+  margin: auto !important;
+}
+table thead {
+  text-transform: uppercase;
+  background-color: rgb(255, 111, 0);
+  color: white;
+}
+table thead th {
+  padding: 10px 20px;
+}
+table tr td {
+  padding: 10px 20px;
+}

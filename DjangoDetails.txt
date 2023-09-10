@@ -535,3 +535,46 @@ Session Management:
 
         Benefits of Session Id:
                 - both client and server side should be maintained session id.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+CRUD OPERATION:
+
+    Create - Insert the Data
+    Retrieve - Retrieve the Data from database to template
+    Update - Edit the Data
+    Delete - Delete the Data
+
+In Python CRUD Approach have two types. There are
+
+            - Function based views
+            - Class based views
+        
+        Important Two Classes:
+
+            -models
+            -forms (forms.ModelForm)
+
+        * models - create a sub class of the model
+        * forms - create a sub class of the ModalForm
+
+    Faker Model in Python - To generated a fake data in Python
+
+                pip install Faker
+
+        - create a python file in project folder.
+        - copy the data for faker.py file and paste it your python file
+        - change the projectName.settings
+        - change variables for your project data
+        - run the python file separately
+        - After run the server and ,check the data from admin dashboard
+
+    Template Tags:
+
+        {% block content%}{% endblock %}
+         
+         - block is used for overriding specific parts of a template
+         - In your case, you have a block name "content" and this is supposed to be overridden by children that inherit 
+           from this template.
+         - Template to be extended, named base.html
+
+
+    Meta Data - Data about Data (Information)

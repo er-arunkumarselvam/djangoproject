@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% extends 'crudApp/base.html' %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Operation | Read</title>
+  </head>
+  <body>
+    {% block content %}
+    <h2>Employee Data</h2>
+    <a href="/add"><input type="button" value="Add Employee" /></a>
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>age</th>
+      </thead>
+
+      <tr>
+        {% for emp in employee %}
+        <td>{{emp.name}}</td>
+        <td>{{emp.age}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endblock %}
+  </body>
+</html>
