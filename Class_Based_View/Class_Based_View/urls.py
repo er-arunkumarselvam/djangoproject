@@ -1,5 +1,5 @@
 """
-URL configuration for CRUD_Operation project.
+URL configuration for Class_Based_View project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,13 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from crudApp import views
+from ClassBasedViewApp import views
 
 urlpatterns = [
+    path('',views.FirstClassView.as_view()), # class based views to using .as_view() change to function
+    path('check/',views.SecondClassView.as_view()),
     path('admin/', admin.site.urls),
-    path('read/', views.read_veiw),
-    path('add/', views.create_view),
-    path('delete/<id>', views.delete_view),
-    path('update/<id>', views.update_view),
-    
 ]

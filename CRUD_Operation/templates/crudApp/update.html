@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% extends 'crudApp/base.html' %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Operation | Update</title>
+  </head>
+  <body>
+    {% block content %}
+    <h2>Update Employee Data</h2>
+    <form action="" method="post">
+      <span>Employee Name</span>
+      <input type="text" name="empname" value="{{employee.empname}}" />
+      <span>Employee age</span>
+      <input type="text" name="empage" value="{{employee.empage}}" />
+      {% csrf_token %}
+       <input type="submit" value="Update Employee">
+    </form>
+
+    {% endblock %}
+  </body>
+</html>

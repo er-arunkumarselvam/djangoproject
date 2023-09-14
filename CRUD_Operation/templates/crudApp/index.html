@@ -14,12 +14,17 @@
       <thead>
         <th>Name</th>
         <th>age</th>
+        <th>Operation</th>
       </thead>
 
       <tr>
         {% for emp in employee %}
         <td>{{emp.name}}</td>
         <td>{{emp.age}}</td>
+        <td>
+          <a href="/update/{{emp.id}}">Update</a>
+          <a href="/delete/{{emp.id}}">Delete</a>
+        </td>
       </tr>
       {% endfor %}
     </table>

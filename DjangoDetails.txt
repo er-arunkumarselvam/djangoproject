@@ -578,3 +578,62 @@ In Python CRUD Approach have two types. There are
 
 
     Meta Data - Data about Data (Information)
+
+
+Flow of DataBase Connection:
+
+    1. Create a django project
+    2. cd to the project folderName
+    3. App Creation
+    4. Create a Folder in Project level
+
+            Templates
+                Application Name
+                    .html files
+    
+    5. Update "settings.py" file
+    6. Connect DB to "models.py" file
+    7. makemigrations
+    8. migrate (Table created)
+    9. update "admin.py" file
+    10. createsuperuser
+    11. runserver
+    12. 127.0.0.1:8000/ into web Browser
+
+        Optional: Data generated
+
+            1. Create a "generate.py" file
+            2. using "Faker Module" import your "generate.py" file
+            
+    13. create "forms.py" and get to inputs to "views.py"
+
+    Delete Data and Update Data using Primary key or Id is Important
+
+    Update operation to be initiated to instance in old object change the value
+
+Class Based Views:
+
+    - create a project and applicaiton
+    - update "settings.py"
+    - goto "views.py" 
+    - write a class 
+    - create a class view (Views inbuilt class)
+
+        from django.views.generic import View
+
+    - Create a Class using instance 
+    - instance is compulsory self constructor
+
+    - update urls.py and run server
+
+        views.ClaseName.as_view()  ---> Class to function views
+
+    Small application used to this class based views (views write class not function)
+
+    Class Based View (TemplateView class) using Templates.
+
+    Template_name is important.
+
+-------------------------------------------- END -----------------------------------------------------------------
+    
+    
